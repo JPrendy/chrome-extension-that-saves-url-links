@@ -1,5 +1,5 @@
 {
-    "name": "Getting Started Example",
+    "name": "Save URLs for Later",
     "version": "1.0",
     "description": "Build an Extension!",
     "permissions": ["activeTab", "tabs", "declarativeContent", "storage"],
@@ -9,6 +9,9 @@
     },
     "page_action": {
         "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "icon.png"
     },
     "manifest_version": 2
 }
