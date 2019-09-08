@@ -31,26 +31,3 @@ saveUrl3.onclick = function(element) {
     chrome.storage.sync.clear();
     });
 };
-
-changeColor.onclick = function(element) {
-    // let color = element.target.value;
-    // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    // chrome.tabs.executeScript(
-    //     tabs[0].id,
-    //     {code: 'document.body.style.backgroundColor = "' + color + '";'});
-    // });
-    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-        var url = tabs[0].url;
-        var result = url.substring(0, url.length-1);
-        //console.log(result);
-        var url2 = result.replace(/\d+$/, function(s) {
-            return +s-1;
-        });
-        chrome.tabs.update(tabs.id, {url: url2});
-    });
-};
-
-chrome.storage.sync.get('color', function(data) {
-changeColor.style.backgroundColor = data.color;
-changeColor.setAttribute('value', data.color);
-});
