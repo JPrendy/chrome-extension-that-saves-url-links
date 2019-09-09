@@ -1,33 +1,35 @@
   <!DOCTYPE html>
   <html>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <head>
       <style>
         body{
-          width: 40px;
+          width: 130px;
         }
         button {
           height: 40px;
           width: 40px;
-          outline: none;
+          border-radius: 5px;
+          border: 1px black;
         }
-
-        .save{
-          height: 40px;
-          width: 40px;
-          outline: none;
+        button:hover {
+          background-color:none; 
         }
-
-        .save2{
-          height: 40px;
-          width: 40px;
-          outline: none;
+        .save3{
+          background-color: #F50F4B;
         }
       </style>
     </head>
     <body>
-      <button class="save" id="saveUrl">Save</button>
-      <button class="save2" id="go">Go</button>
-      <button class="save3" id="clear">Clear</button>
+      <button class="save" id="saveUrl"><i class="material-icons">
+          save
+          </i></button>
+      <button class="save2" id="go"><i class="material-icons">
+          play_arrow
+          </i></button>
+      <button class="save3" id="clear"><i class="material-icons">
+          delete
+          </i></button>
       <script src="popup.js"></script>
     </body>
   </html>
