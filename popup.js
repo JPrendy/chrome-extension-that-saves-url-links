@@ -33,20 +33,12 @@ saveUrl2.onclick = function(element) {
     if(urlOrder > 3){
         urlOrder =1;
     }
-    if(urlOrder == 1){
-    chrome.storage.sync.get(["key1"], function(result) {
-        chrome.tabs.update(tabs.id, {url: result.key1});
-    });
-    }
-    if(urlOrder == 2){
-    chrome.storage.sync.get(["key2"], function(result) {
-        chrome.tabs.update(tabs.id, {url: result.key2});
-    });
-    }
-    if(urlOrder == 3){
-        chrome.storage.sync.get(["key3"], function(result) {
-            chrome.tabs.update(tabs.id, {url: result.key3});
+    for(i=0; i<4; i++){
+    if(urlOrder == i){
+        chrome.storage.sync.get(["key" + urlOrder], function(result) {
+            chrome.tabs.update(tabs.id, {url: result["key" + urlOrder]});
         });
+    }
     }
     chrome.storage.sync.set({checkUrl: urlOrder}, function() {
         console.log('Value is set to ' + urlOrder);
