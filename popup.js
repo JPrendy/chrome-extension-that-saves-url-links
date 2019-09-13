@@ -8,7 +8,7 @@ saveUrl.onclick = function(element) {
 
     var url = tabs[0].url;
     console.log(url);
-    if(number > 2){
+    if(number > 5){
 
     }
     else {
@@ -30,10 +30,10 @@ saveUrl2.onclick = function(element) {
     //set a number value each time and use that to retrieve what place you should be at
     urlOrder+=1;
 
-    if(urlOrder > 3){
+    if(urlOrder > number){
         urlOrder =1;
     }
-    for(i=0; i<4; i++){
+    for(i=0; i<number+1; i++){
     if(urlOrder == i){
         chrome.storage.sync.get(["key" + urlOrder], function(result) {
             chrome.tabs.update(tabs.id, {url: result["key" + urlOrder]});
@@ -85,10 +85,12 @@ var urlOrder = chrome.storage.sync.get(['checkUrl'], function(result) {
 });
 okay()
 function okay(){
-chrome.storage.sync.get(['key1'], function(result) {
+var i = 1;
+chrome.storage.sync.get(['key' + i], function(result) {
+    var test = result['key' + i];
     if(result.key1 != undefined){
     var h = document.createElement("h6");
-    var linkText = document.createTextNode(result.key1);
+    var linkText = document.createTextNode(test);
     if(urlOrder == 1){
         h.style.color = "blue"
     }
@@ -112,6 +114,39 @@ chrome.storage.sync.get(['key3'], function(result) {
     var h = document.createElement("h6");
     var linkText = document.createTextNode(result.key3);
     if(urlOrder == 3){
+        h.style.color = "blue"
+    }
+    h.append(linkText);
+    document.getElementById('savedUrl').append(h);
+    }
+});
+chrome.storage.sync.get(['key4'], function(result) {
+    if(result.key4 != undefined){
+    var h = document.createElement("h6");
+    var linkText = document.createTextNode(result.key4);
+    if(urlOrder == 4){
+        h.style.color = "blue"
+    }
+    h.append(linkText);
+    document.getElementById('savedUrl').append(h);
+    }
+});
+chrome.storage.sync.get(['key5'], function(result) {
+    if(result.key5 != undefined){
+    var h = document.createElement("h6");
+    var linkText = document.createTextNode(result.key5);
+    if(urlOrder == 5){
+        h.style.color = "blue"
+    }
+    h.append(linkText);
+    document.getElementById('savedUrl').append(h);
+    }
+});
+chrome.storage.sync.get(['key6'], function(result) {
+    if(result.key6 != undefined){
+    var h = document.createElement("h6");
+    var linkText = document.createTextNode(result.key6);
+    if(urlOrder == 6){
         h.style.color = "blue"
     }
     h.append(linkText);
