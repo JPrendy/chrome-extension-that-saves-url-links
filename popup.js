@@ -8,7 +8,7 @@ saveUrl.onclick = function(element) {
 
     var url = tabs[0].url;
     console.log(url);
-    if(number > 5){
+    if(number > 9){
 
     }
     else {
@@ -48,7 +48,9 @@ saveUrl2.onclick = function(element) {
         list.removeChild(list.firstChild);
     }
     });
-    okay()
+    for(i=0;i<number+1;i++){
+    okay(i)
+    }
 };
 
 saveUrl3.onclick = function(element) {
@@ -83,70 +85,16 @@ var urlOrder = chrome.storage.sync.get(['checkUrl'], function(result) {
     return urlOrder = 0;
     }
 });
-okay()
-function okay(){
-var i = 1;
+for(i=0;i<10;i++){
+    okay(i)
+}
+function okay(i){
 chrome.storage.sync.get(['key' + i], function(result) {
     var test = result['key' + i];
-    if(result.key1 != undefined){
+    if(test != undefined){
     var h = document.createElement("h6");
     var linkText = document.createTextNode(test);
-    if(urlOrder == 1){
-        h.style.color = "blue"
-    }
-    h.append(linkText);
-    document.getElementById('savedUrl').append(h);
-    }
-});
-chrome.storage.sync.get(['key2'], function(result) {
-    if(result.key2 != undefined){
-    var h = document.createElement("h6");
-    var linkText = document.createTextNode(result.key2);
-    if(urlOrder == 2){
-        h.style.color = "blue"
-    }
-    h.append(linkText);
-    document.getElementById('savedUrl').append(h);
-    }
-});
-chrome.storage.sync.get(['key3'], function(result) {
-    if(result.key3 != undefined){
-    var h = document.createElement("h6");
-    var linkText = document.createTextNode(result.key3);
-    if(urlOrder == 3){
-        h.style.color = "blue"
-    }
-    h.append(linkText);
-    document.getElementById('savedUrl').append(h);
-    }
-});
-chrome.storage.sync.get(['key4'], function(result) {
-    if(result.key4 != undefined){
-    var h = document.createElement("h6");
-    var linkText = document.createTextNode(result.key4);
-    if(urlOrder == 4){
-        h.style.color = "blue"
-    }
-    h.append(linkText);
-    document.getElementById('savedUrl').append(h);
-    }
-});
-chrome.storage.sync.get(['key5'], function(result) {
-    if(result.key5 != undefined){
-    var h = document.createElement("h6");
-    var linkText = document.createTextNode(result.key5);
-    if(urlOrder == 5){
-        h.style.color = "blue"
-    }
-    h.append(linkText);
-    document.getElementById('savedUrl').append(h);
-    }
-});
-chrome.storage.sync.get(['key6'], function(result) {
-    if(result.key6 != undefined){
-    var h = document.createElement("h6");
-    var linkText = document.createTextNode(result.key6);
-    if(urlOrder == 6){
+    if(urlOrder == i){
         h.style.color = "blue"
     }
     h.append(linkText);
