@@ -4,14 +4,13 @@
     "description": "Build an Extension!",
     "permissions": ["activeTab", "tabs", "declarativeContent", "storage"],
     "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+        "service_worker": "background.js"
     },
-    "page_action": {
+    "action": {
         "default_popup": "popup.html"
     },
     "icons": {
         "16": "images/icon.png"
     },
-    "manifest_version": 2
+    "manifest_version": 3
 }
